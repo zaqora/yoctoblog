@@ -71,7 +71,7 @@
 <b:section id='Menu'>
   <b:widget id='PageList1' locked='false' title='Halaman' type='PageList' visible='true'>
     <b:widget-settings>
-      <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://aji6.blogspot.com/', 'title': 'Beranda', 'position': 0}, '909453377791400136': {'href': 'https://aji6.blogspot.com/p/tentang.html', 'title': 'Tentang', 'position': 1}, '2452061744372873149': {'href': 'https://aji6.blogspot.com/p/kontak.html', 'title': 'Kontak', 'position': 2}, 'link0': {'href': 'https://www.google.co.id/', 'title': 'Google Indonesia', 'position': 3}}]]></b:widget-setting>
+      <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://aji6.blogspot.com/', 'title': 'Beranda', 'position': 0}, '909453377791400136': {'href': 'https://aji6.blogspot.com/p/tentang.html', 'title': 'Tentang', 'position': 1}, '2452061744372873149': {'href': 'https://aji6.blogspot.com/p/kontak.html', 'title': 'Kontak', 'position': 2}, 'link0': {'href': 'https://www.google.co.id/', 'title': 'Google Indonesia', 'position': 3}, 'link1': {'href': 'https://id-id.facebook.com/', 'title': 'Facebook Indonesia', 'position': 4}}]]></b:widget-setting>
       <b:widget-setting name='homeTitle'>Beranda</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
@@ -141,28 +141,31 @@
   </b:widget>
   <b:widget id='Blog1' locked='false' title='Posting Blog' type='Blog' visible='true'>
     <b:widget-settings>
-      <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-      <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
       <b:widget-setting name='showShareButtons'>true</b:widget-setting>
-      <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-      <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
-      <b:widget-setting name='showAuthor'>false</b:widget-setting>
+      <b:widget-setting name='authorLabel'/>
       <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
-      <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
       <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-      <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
       <b:widget-setting name='timestampLabel'/>
-      <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+      <b:widget-setting name='reactionsLabel'/>
+      <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
       <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-      <b:widget-setting name='showLabels'>true</b:widget-setting>
       <b:widget-setting name='showLocation'>true</b:widget-setting>
-      <b:widget-setting name='postLabelsLabel'/>
       <b:widget-setting name='showTimestamp'>true</b:widget-setting>
       <b:widget-setting name='postsPerAd'>1</b:widget-setting>
-      <b:widget-setting name='showBacklinks'>false</b:widget-setting>
       <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+      <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+      <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+      <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
+      <b:widget-setting name='postLocationLabel'/>
+      <b:widget-setting name='showAuthor'>true</b:widget-setting>
+      <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+      <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showLabels'>true</b:widget-setting>
+      <b:widget-setting name='postLabelsLabel'/>
+      <b:widget-setting name='showBacklinks'>true</b:widget-setting>
       <b:widget-setting name='showInlineAds'>false</b:widget-setting>
-      <b:widget-setting name='showReactions'>false</b:widget-setting>
+      <b:widget-setting name='showReactions'>true</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main' var='this'>
   <div class='blog-posts hfeed container'>

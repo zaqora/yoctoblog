@@ -8,7 +8,6 @@
 <b:skin><![CDATA[]]></b:skin>
 <b:template-skin><![CDATA[]]></b:template-skin>
 <b:defaultmarkups></b:defaultmarkups>
-<b:include cond='not data:view.isPreview' data='{image: data:skin.vars.body_background.image, selector: &quot;.bg-photo&quot;, imageSizes: [480, 640, 800, 1200, 1600]}' name='responsiveImageStyle'/>
 <b:if cond='data:widgets.AdSense.first or data:blog.adsenseClientId'>
 <script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'/>
 </b:if>

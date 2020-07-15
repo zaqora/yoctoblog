@@ -14,6 +14,39 @@ html {
   --font-monospace: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace !important;
   --font-sans-serif: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --font-serif: Georgia, 'Liberation Serif', serif;
+
+  --background: #fff;
+  --background-secondary: #eee;
+  --border: #ddd;
+  --text: #333;
+  --text-secondary: #666;
+  --link: #069;
+  --hover: #09c;
+}
+
+body {
+  color: var(--text);
+  font-family: var(--font-sans-serif);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans-serif);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.widget {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 40em;
+  padding-right: 1.25em;
+  padding-left: 1.25em;
+}
+
+.post-body {
+  font-family: var(--font-serif);
 }
 
 ]]></b:skin>

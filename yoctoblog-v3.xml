@@ -12,8 +12,8 @@
 
 html {
   --font-monospace: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace !important;
-  --font-sans-serif: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  --font-serif: Georgia, 'Liberation Serif', serif;
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-serif: Georgia, serif;
 
   --background: #fff;
   --background-secondary: #eee;
@@ -45,8 +45,51 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 1.25em;
 }
 
+.Header {
+  margin-top: 2.5em;
+}
+
+.Header p {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+.PageList {
+  margin-top: 1em;
+}
+
+.PageList h3.title {
+  display: none;
+}
+
+.PageList ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.PageList li {
+  display: inline-block;
+}
+
+.PageList li:not(:last-child) {
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+}
+
+
+.FeaturedPost {
+  margin-top: 2.5em;
+}
+
+.post {
+  margin-top: 2.5em;
+}
+
 .post-body {
   font-family: var(--font-serif);
+  font-size: 1.125em;
+  line-height: 1.6;
 }
 
 ]]></b:skin>
@@ -73,42 +116,42 @@ h1, h2, h3, h4, h5, h6 {
       <b:widget-setting name='displayWidth'>0</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main' var='this'>
-    <div class='header-widget'>
-      <b:include cond='data:imagePlacement in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='image'/>
-      <b:include cond='data:imagePlacement not in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='title'/>
-      <b:include cond='data:imagePlacement != &quot;REPLACE&quot;' name='description'/>
-    </div>
-    <b:include cond='data:imagePlacement == &quot;BEHIND&quot;' name='behindImageStyle'/>
-  </b:includable>
+<div class='header-widget'>
+<b:include cond='data:imagePlacement in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='image'/>
+<b:include cond='data:imagePlacement not in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='title'/>
+<b:include cond='data:imagePlacement != &quot;REPLACE&quot;' name='description'/>
+</div>
+<b:include cond='data:imagePlacement == &quot;BEHIND&quot;' name='behindImageStyle'/>
+</b:includable>
     <b:includable id='behindImageStyle'>
-    <b:if cond='data:sourceUrl'>
-      <b:include cond='data:this.image' data='{                    image: data:this.image,                    selector: &quot;.header-widget&quot;                  }' name='responsiveImageStyle'/>
-      <style type='text/css'>
-        .header-widget {
-          background-position: <data:blog.locale.languageAlignment/>;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-      </style>
-    </b:if>
-  </b:includable>
+<b:if cond='data:sourceUrl'>
+<b:include cond='data:this.image' data='{image: data:this.image, selector: &quot;.header-widget&quot;}' name='responsiveImageStyle'/>
+<style type='text/css'>
+.header-widget {
+  background-position: <data:blog.locale.languageAlignment/>;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+</b:if>
+</b:includable>
     <b:includable id='description'>
-    <p>
-      <data:this.description/>
-    </p>
-  </b:includable>
+<p>
+<data:this.description/>
+</p>
+</b:includable>
     <b:includable id='image'>
-    <a class='header-image-wrapper' expr:href='data:blog.homepageUrl'>
-      <b:include data='{                                                 image: data:image,                                                 altText: data:blog.title.escaped,                                                 originalWidth: data:width,                                                 originalHeight: data:height                                               }' name='responsiveImage'/>
-    </a>
-  </b:includable>
+<a class='header-image-wrapper' expr:href='data:blog.homepageUrl'>
+<b:include data='{image: data:image, altText: data:blog.title.escaped, originalWidth: data:width, originalHeight: data:height}' name='responsiveImage'/>
+</a>
+</b:includable>
     <b:includable id='title'>
-    <h1>
-      <b:tag cond='data:view.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
-        <data:title/>
-      </b:tag>
-    </h1>
-  </b:includable>
+<h1>
+<b:tag cond='data:view.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
+<data:title/>
+</b:tag>
+</h1>
+</b:includable>
   </b:widget>
 </b:section>
 <nav role='navigation'>

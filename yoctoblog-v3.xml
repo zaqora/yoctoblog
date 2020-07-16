@@ -77,11 +77,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5em;
 }
 
-
-.FeaturedPost {
-  margin-top: 2.5em;
-}
-
 .post {
   margin-top: 2.5em;
 }
@@ -90,6 +85,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-size: 1.125em;
   line-height: 1.6;
+}
+
+.blog-pager {
+  margin-top: 2.5em;
+}
+
+.blog-feeds {
+  margin-top: 1em;
 }
 
 ]]></b:skin>
@@ -104,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 <body expr:class='data:view.type'>
 
 <header role='banner'>
-<b:section id='Header'>
+<b:section class='Header' id='Header'>
   <b:widget id='Header1' locked='false' title='Aji Enam (Header)' type='Header' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='displayUrl'/>
@@ -155,7 +158,7 @@ h1, h2, h3, h4, h5, h6 {
   </b:widget>
 </b:section>
 <nav role='navigation'>
-<b:section id='Menu'>
+<b:section class='Menu' id='Menu'>
   <b:widget id='PageList1' locked='false' title='Halaman' type='PageList' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://aji6.blogspot.com/', 'title': 'Beranda', 'position': 0}, '909453377791400136': {'href': 'https://aji6.blogspot.com/p/tentang.html', 'title': 'Tentang', 'position': 1}, '2452061744372873149': {'href': 'https://aji6.blogspot.com/p/kontak.html', 'title': 'Kontak', 'position': 2}, 'link0': {'href': 'https://www.google.co.id/', 'title': 'Google Indonesia', 'position': 3}, 'link1': {'href': 'https://id-id.facebook.com/', 'title': 'Facebook Indonesia', 'position': 4}}]]></b:widget-setting>
@@ -211,7 +214,7 @@ h1, h2, h3, h4, h5, h6 {
 </header>
 
 <main role='main'>
-<b:section id='Content'>
+<b:section class='Content' id='Content'>
   <b:widget id='FeaturedPost1' locked='false' title='' type='FeaturedPost' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='showSnippet'>true</b:widget-setting>
@@ -641,7 +644,7 @@ h1, h2, h3, h4, h5, h6 {
 </main>
 
 <aside role='complementary'>
-<b:section id='Sidebar'>
+<b:section class='Sidebar' id='Sidebar'>
   <b:widget id='BlogArchive1' locked='false' title='' type='BlogArchive' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
@@ -714,7 +717,7 @@ h1, h2, h3, h4, h5, h6 {
 </aside>
 
 <footer role='contentinfo'>
-<b:section id='Footer'>
+<b:section class='Footer' id='Footer'>
   <b:widget id='ReportAbuse1' locked='false' title='' type='ReportAbuse' visible='true'>
     <b:includable id='main'>
   <b:include name='reportAbuse'/>

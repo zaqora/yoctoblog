@@ -79,9 +79,44 @@ a:hover {
 }
 
 .Header p {
-  display: inline-block;
+  display: inline;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+/* Menu */
+
+.PageList {
+  margin-top: 1em;
+}
+
+.PageList ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.PageList li {
+  display: inline-block;
+}
+
+.PageList li:not(:last-child) {
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+}
+
+.PageList li.selected {
+  font-weight: 700;
+}
+
+.PageList li.selected a {
+  color: var(--teks);
+  text-decoration: underline;
+}
+
+.PageList li.selected a:hover {
+  color: var(--hover);
+  text-decoration: none;
 }
 
 /* Layout */
@@ -95,6 +130,10 @@ a:hover {
 }
 
 /* Other */
+
+.clear {
+  clear: both;
+}
 
 .hidden {
   display: none;
@@ -153,30 +192,14 @@ a:hover {
       <b:widget-setting name='homeTitle'>Beranda</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
-  <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
-  <div class='widget-content'>
-    <b:if cond='data:mobile'>
-      <select expr:id='data:widget.instanceId + &quot;_select&quot;'>
-        <b:loop values='data:links' var='link'>
-          <option expr:value='data:link.href'>
-            <b:attr cond='data:link.isCurrentPage' name='selected' value='selected'/>
-            <data:link.title/>
-          </option>
-        </b:loop>
-      </select>
-      <span class='pagelist-arrow'>&amp;#9660;</span>
-    <b:else/>
-      <ul>
-        <b:loop values='data:links' var='link'>
-          <li>
-            <b:class cond='data:link.isCurrentPage' name='selected'/>
-            <a expr:href='data:link.href'><data:link.title/></a>
-          </li>
-        </b:loop>
-      </ul>
-    </b:if>
-    <b:include name='quickedit'/>
-  </div>
+<ul>
+<b:loop values='data:links' var='link'>
+<li>
+<b:class cond='data:link.isCurrentPage' name='selected'/>
+<a expr:href='data:link.href'><data:link.title/></a>
+</li>
+</b:loop>
+</ul>
 </b:includable>
   </b:widget>
 </b:section>

@@ -24,6 +24,8 @@
   --hover: #09c;
 }
 
+/* General */
+
 body {
   color: var(--teks);
   font-family: var(--sans-serif);
@@ -64,6 +66,26 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Header */
+
+.Header {
+  margin-top: 2.5em;
+}
+
+.Header h1 {
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.Header p {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Layout */
+
 .widget {
   margin-right: auto;
   margin-left: auto;
@@ -71,6 +93,8 @@ a:hover {
   padding-right: 1.25em;
   padding-left: 1.25em;
 }
+
+/* Other */
 
 .hidden {
   display: none;
@@ -147,26 +171,21 @@ a:hover {
       </div>
     </b:if>
   <b:else/>
-    <!--No header image -->
-    <div id='header-inner'>
-      <div class='titlewrapper'>
-        <h1 class='title'>
-          <b:include name='title'/>
-        </h1>
-      </div>
-      <b:include name='description'/>
-    </div>
-  </b:if>
+<b:include name='title'/>
+<b:include name='description'/>
+</b:if>
 </b:includable>
     <b:includable id='description'>
-  <div class='descriptionwrapper'>
-    <p class='description'><span><data:description/></span></p>
-  </div>
+<p class='blog-description'>
+<data:description/>
+</p>
 </b:includable>
     <b:includable id='title'>
-  <b:tag cond='data:blog.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
-    <data:title/>
-  </b:tag>
+<h1 class='blog-title'>
+<b:tag cond='data:blog.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
+<data:title/>
+</b:tag>
+</h1>
 </b:includable>
   </b:widget>
 </b:section>

@@ -172,13 +172,12 @@ ol, ul {
 
 .Header h1 {
   display: inline-block;
-  font-size: 1.125em;
+  font-size: 1em;
   line-height: 1.5;
 }
 
 .Header p {
   display: inline;
-  font-size: 1.125em;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -749,6 +748,42 @@ ol, ul {
     <b:includable id='nextprev'/>
     <b:includable id='post' var='post'>
 <div class='post hentry'>
+<script type='application/ld+json'>{
+  &quot;@context&quot;: &quot;http://schema.org&quot;,
+  &quot;@type&quot;: &quot;BlogPosting&quot;,
+  &quot;mainEntityOfPage&quot;: {
+    &quot;@type&quot;: &quot;WebPage&quot;,
+    &quot;@id&quot;: &quot;<data:post.url.canonical.jsonEscaped/>&quot;
+  },
+  &quot;headline&quot;: &quot;<b:if cond='data:post.title'><data:post.title.jsonEscaped/><b:else/><b:eval expr='(data:post.snippet snippet { length: 70, links: false, linebreaks: false, ellipsis: false }).jsonEscaped'/></b:if>&quot;,
+  &quot;description&quot;: &quot;<b:eval expr='(data:post.body snippet { length: 255, links: false, linebreaks: false, ellipsis: true }).jsonEscaped'/>&quot;,
+  <b:if cond='data:view.isSingleItem'>&quot;articleBody&quot;: &quot;<b:eval expr='(data:post.body).jsonEscaped'/>&quot;,</b:if>
+  &quot;datePublished&quot;: &quot;<data:post.timestampISO8601.jsonEscaped/>&quot;,
+  &quot;dateModified&quot;: &quot;<data:post.lastUpdatedISO8601.jsonEscaped/>&quot;,
+  &quot;image&quot;: {
+    &quot;@type&quot;: &quot;ImageObject&quot;,
+    &quot;url&quot;: &quot;<b:eval expr='(data:post.firstImageUrl ? resizeImage(data:post.firstImageUrl, 1200, &quot;1200:630&quot;) : &quot;https://lh3.googleusercontent.com/ULB6iBuCeTVvSjjjU1A-O8e9ZpVba6uvyhtiWRti_rBAs9yMYOFBujxriJRZ-A=w1200&quot;).jsonEscaped'/>&quot;,
+    &quot;height&quot;: <b:eval expr='data:post.firstImageUrl ? 630 : 348'/>,
+    &quot;width&quot;: 1200
+  },
+  &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Organization&quot;,
+    &quot;name&quot;: &quot;Blogger&quot;,
+    &quot;logo&quot;: {
+      &quot;@type&quot;: &quot;ImageObject&quot;,
+      &quot;url&quot;: &quot;https://lh3.googleusercontent.com/ULB6iBuCeTVvSjjjU1A-O8e9ZpVba6uvyhtiWRti_rBAs9yMYOFBujxriJRZ-A=h60&quot;,
+      &quot;width&quot;: 206,
+      &quot;height&quot;: 60
+    }
+  },
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;<data:post.author.jsonEscaped/>&quot;
+    <b:if cond='data:post.authorProfileUrl'>, &quot;url&quot;: &quot;<data:post.authorProfileUrl.jsonEscaped/>&quot;</b:if>
+    <b:if cond='data:post.authorPhoto.url'>, &quot;image&quot;: &quot;<data:post.authorPhoto.url.jsonEscaped/>&quot;</b:if>
+  }
+}
+</script>
 <a expr:name='data:post.id'/>
 
 <b:if cond='data:view.isMultipleItems and data:post.firstImageUrl'>

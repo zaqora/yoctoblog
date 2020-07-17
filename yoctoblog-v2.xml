@@ -33,6 +33,65 @@ body {
   line-height: 1.5;
 }
 
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover);
+  text-decoration: underline;
+}
+
+blockquote {
+  font-style: italic;
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+blockquote cite {
+  display: block;
+  font-family: var(--sans-serif);
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+code, pre {
+  font-family: var(--monospace);
+}
+
+code {
+  background-color: var(--background-sekunder);
+  font-size: 0.875em;
+  padding: 0.125em;
+}
+
+pre {
+  background-color: var(--background-sekunder);
+  font-size: 0.875em;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+pre code {
+  font-size: 1em;
+  padding: 0;
+}
+
+.mobile pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 35em) {
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--sans-serif);
   line-height: 1.25;
@@ -56,16 +115,6 @@ h4, h5, h6 {
   font-size: 1.125em;
 }
 
-a {
-  color: var(--link);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--hover);
-  text-decoration: underline;
-}
-
 hr {
   background-color: var(--border);
   border: 0;
@@ -82,6 +131,24 @@ iframe {
 img {
   height: auto;
   max-width: 100%;
+}
+
+mark {
+  background-color: gold;
+  padding: 0.125em;
+}
+
+ol, ul {
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+::-moz-selection {
+  background-color: var(--background-sekunder);
+}
+
+::selection {
+  background-color: var(--background-sekunder);
 }
 
 /* Header */
@@ -132,7 +199,7 @@ img {
 }
 
 .PageList li.selected {
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .PageList li.selected a {
@@ -152,7 +219,7 @@ img {
   border: 1px solid #f0c36d;
   box-sizing: border-box;
   margin-top: 1.25em;
-  padding: 0.5em;
+  padding: 1em;
 }
 
 /* Content */
@@ -306,6 +373,19 @@ img {
 .comment-author {
   font-size: 1.125em;
   font-weight: bold;
+}
+
+.blog-author {
+  display: inline-block;
+}
+
+.blog-author:after {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==);
+  content: '';
+  display: inline-block;
+  height: 18px;
+  margin: 0 0 -3px 0;
+  width: 18px;
 }
 
 .comment-body {

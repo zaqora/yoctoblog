@@ -122,6 +122,18 @@ a:hover {
 /* Content */
 
 .post {
+  border-bottom: 1px solid var(--border);
+  margin-top: 2.5em;
+  padding-bottom: 1.25em;
+}
+
+.post-body {
+  margin-top: 1.25em;
+}
+
+/* Pager */
+
+.blog-pager {
   margin-top: 2.5em;
 }
 
@@ -240,52 +252,22 @@ a:hover {
 </div>
 </b:if>
 
+<b:loop values='data:posts' var='post'>
+<b:include data='post' name='post'/>
+<b:include cond='data:view.isPost' data='post' name='comment_picker'/>
+</b:loop>
 
-  <b:if cond='!data:mobile'>
-    <!-- posts -->
-    <div class='blog-posts hfeed'>
-
-      <b:loop values='data:posts' var='post'>
-        <b:if cond='data:post.isDateStart and not data:post.isFirstPost'>
-          &lt;/div&gt;&lt;/div&gt;
-        </b:if>
-        <b:if cond='data:post.isDateStart'>
-          &lt;div class=&quot;date-outer&quot;&gt;
-        </b:if>
-        <b:if cond='data:post.dateHeader'>
-          <h2 class='date-header'><span><data:post.dateHeader/></span></h2>
-        </b:if>
-        <b:if cond='data:post.isDateStart'>
-          &lt;div class=&quot;date-posts&quot;&gt;
-        </b:if>
-        <div class='post-outer'>
-          <b:include data='post' name='post'/>
-          <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
-        </div>
-
-        <!-- Ad -->
-        <b:if cond='data:post.includeAd'>
-          <div class='inline-ad'>
-            <data:adCode/>
-          </div>
-        </b:if>
-      </b:loop>
-      <b:if cond='data:numPosts != 0'>
-        &lt;/div&gt;&lt;/div&gt;
-      </b:if>
-    </div>
-
-    <!-- navigation -->
-    <b:include name='nextprev'/>
-
-    <!-- feed links -->
-    <b:include name='feedLinks'/>
-
-  <b:else/>
-    <b:include name='mobile-main'/>
-  </b:if>
-
-  <b:include cond='data:top.showPlusOne' name='googlePlusBootstrap'/>
+<div class='blog-pager' id='blog-pager'>
+<b:if cond='data:newerPageUrl'>
+<a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'> &#171; <span class='blog-pager-text'><data:newerPageTitle/></span></a>
+</b:if>
+<a class='blog-pager-home-link' expr:href='data:blog.homepageUrl'>
+<b:class cond='!data:newerPageUrl and !data:olderPageUrl' name='centered'/>
+<data:homeMsg/></a>
+<b:if cond='data:olderPageUrl'>
+<a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><span class='blog-pager-text'><data:olderPageTitle/></span> &#187; </a>
+</b:if>
+</div>
 </b:includable>
     <b:includable id='backlinkDeleteIcon' var='backlink'/>
     <b:includable id='backlinks' var='post'/>
@@ -642,29 +624,7 @@ a:hover {
   </div>
 </b:includable>
     <b:includable id='nextprev'>
-  <div class='blog-pager' id='blog-pager'>
-    <b:if cond='data:newerPageUrl'>
-      <span id='blog-pager-newer-link'>
-      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
-      </span>
-    </b:if>
-
-    <b:if cond='data:olderPageUrl'>
-      <span id='blog-pager-older-link'>
-      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
-      </span>
-    </b:if>
-
-    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
-
-    <b:if cond='data:mobileLinkUrl'>
-      <div class='blog-mobile-link'>
-        <a expr:href='data:mobileLinkUrl'><data:mobileLinkMsg/></a>
-      </div>
-    </b:if>
-
-  </div>
-  <div class='clear'/>
+  
 </b:includable>
     <b:includable id='post' var='post'>
   <div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>

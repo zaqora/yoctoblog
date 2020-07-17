@@ -119,6 +119,8 @@ a:hover {
   text-decoration: none;
 }
 
+/* Content */
+
 /* Layout */
 
 .widget {
@@ -167,21 +169,17 @@ a:hover {
       <b:widget-setting name='displayWidth'>0</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
-<b:include name='title'/>
-<b:include name='description'/>
-</b:includable>
-    <b:includable id='description'>
-<p class='blog-description'>
-<data:description/>
-</p>
-</b:includable>
-    <b:includable id='title'>
 <h1 class='blog-title'>
 <b:tag cond='data:blog.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
 <data:title/>
 </b:tag>
 </h1>
+<p class='blog-description'>
+<data:description/>
+</p>
 </b:includable>
+    <b:includable id='description'/>
+    <b:includable id='title'/>
   </b:widget>
 </b:section>
 

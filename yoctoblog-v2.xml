@@ -11,7 +11,7 @@
 <b:include data='blog' name='google-analytics'/>
 </head>
 
-  <body expr:class='&quot;loading&quot; + data:blog.mobileClass'>
+<body expr:class='data:view.type + data:blog.mobileClass'>
   <b:section class='navbar' id='navbar' maxwidgets='1' name='Navbar' showaddelement='no'>
     <b:widget id='Navbar1' locked='true' title='Navbar' type='Navbar'>
       <b:includable id='main'>&lt;script type=&quot;text/javascript&quot;&gt;

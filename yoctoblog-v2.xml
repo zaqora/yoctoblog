@@ -84,6 +84,14 @@ a:hover {
   margin-bottom: 0;
 }
 
+.blog-title a {
+  color: var(--teks);
+}
+
+.blog-title a:hover {
+  color: var(--hover);
+}
+
 /* Menu */
 
 .PageList {
@@ -127,6 +135,10 @@ a:hover {
   padding-bottom: 2.5em;
 }
 
+.item .post-title {
+  font-size: 1.75em;
+}
+
 .post-title a {
   color: var(--teks);
 }
@@ -157,10 +169,6 @@ a:hover {
 
 .post-footer {
   margin-top: 2.5em;
-}
-
-.post-location {
-  margin-top: 0.5em;
 }
 
 /* Pager */
@@ -289,7 +297,7 @@ a:hover {
 <b:include cond='data:view.isPost' data='post' name='comment_picker'/>
 </b:loop>
 
-<div class='blog-pager' id='blog-pager'>
+<div class='blog-pager'>
 <b:if cond='data:newerPageUrl'>
 <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'> &#171; <span class='blog-pager-text'><data:newerPageTitle/></span></a>
 </b:if>
@@ -689,45 +697,23 @@ a:hover {
 <data:post.snippet/>
 <b:else/>
 <data:post.body/>
-</b:if> 
+</b:if>
 <div class='clear'/>
 </div>
 
-<b:if cond='data:view.isPost'>
+<b:if cond='data:view.isMultipleItems and data:post.allowComments and data:post.numComments != 0'>
 <div class='post-footer'>
-<span class='post-author vcard'>
-<b:if cond='data:top.showAuthor'>
-<data:top.authorLabel/>
-<b:if cond='data:post.authorProfileUrl'>
-<span class='fn'><a expr:href='data:post.authorProfileUrl' rel='author' title='Profil Penulis'><data:post.author/></a></span>
-<b:else/>
-<span class='fn'><data:post.author/></span>
-</b:if>
-</b:if>
-</span>
-<span class='post-labels'>
-<b:if cond='data:top.showPostLabels and data:post.labels'>
-<data:postLabelsLabel/>
-<b:loop values='data:post.labels' var='label'>
-<a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
-</b:loop>
-</b:if>
-</span>
-</div>
-<div class='post-location'>
-<b:if cond='data:top.showLocation and data:post.location'>
-<data:postLocationLabel/>
-<a expr:href='data:post.location.mapsUrl' rel='noreferrer' target='_blank'><data:post.location.name/></a>
-</b:if>
-</div>
-<b:elseif cond='!data:view.isPage and data:post.allowComments and data:post.numComments != 0'/>
-<div class='post-comment-link'>
 <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
 <data:post.commentLabelFull/>:
 </a>
 </div>
+<b:elseif cond='!data:view.isPage and data:top.showPostLabels and data:post.labels'/>
+<div class='post-footer'>
+<b:loop values='data:post.labels' var='label'>
+<a expr:href='data:label.url' rel='tag'><data:label.name/></a>
+</b:loop>
+</div>
 </b:if>
-
 </div>
 </b:includable>
     <b:includable id='postQuickEdit' var='post'>

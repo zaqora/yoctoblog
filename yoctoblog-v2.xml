@@ -702,18 +702,21 @@ a:hover {
 </div>
 
 <b:if cond='data:view.isMultipleItems and data:post.allowComments and data:post.numComments != 0'>
-<div class='post-footer'>
+<div class='post-comments'>
 <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
 <data:post.commentLabelFull/>:
 </a>
 </div>
-<b:elseif cond='!data:view.isPage and data:top.showPostLabels and data:post.labels'/>
-<div class='post-footer'>
+</b:if>
+
+<b:if cond='data:view.isPost and data:top.showPostLabels and data:post.labels'>
+<div class='post-labels'>
 <b:loop values='data:post.labels' var='label'>
 <a expr:href='data:label.url' rel='tag'><data:label.name/></a>
 </b:loop>
 </div>
 </b:if>
+
 </div>
 </b:includable>
     <b:includable id='postQuickEdit' var='post'>

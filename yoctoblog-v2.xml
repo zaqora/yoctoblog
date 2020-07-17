@@ -159,6 +159,12 @@ a:hover {
   margin-top: 1.25em;
 }
 
+.item .post-body {
+  font-family: var(--serif);
+  font-size: 1.125em;
+  line-height: 1.6;
+}
+
 .post-body a {
   text-decoration: underline;
 }
@@ -172,6 +178,48 @@ a:hover {
 }
 
 .post-labels {
+  margin-top: 1em;
+}
+
+/* Comments */
+
+.comments {
+  margin-top: 2.5em;
+}
+
+.comment {
+  border-bottom: 1px solid var(--border);
+  margin-top: 1em;
+  padding-bottom: 1em;
+}
+
+.comment-author {
+  font-size: 1.125em;
+  font-weight: bold;
+}
+
+.comment-author a {
+  color: var(--teks);
+}
+
+.comment-author a:hover {
+  color: var(--hover);
+}
+
+.comment-body {
+  font-family: var(--serif);
+  margin-top: 1em;
+}
+
+.comment-footer {
+  margin-top: 1em;
+}
+
+.comment-footer a {
+  color: var(--teks-sekunder);
+}
+
+.comment-form {
   margin-top: 1em;
 }
 
@@ -318,8 +366,8 @@ a:hover {
     <b:includable id='comment-form' var='post'>
 <div class='comment-form'>
 <a name='comment-form'/>
-<h2 id='comment-post-message'><data:postCommentMsg/></h2>
-<p><data:blogCommentMessage/></p>
+<h3 class='comment-form-title'><data:postCommentMsg/></h3>
+<p class='comment-form-message'><data:blogCommentMessage/></p>
 <data:blogTeamBlogMessage/>
 <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
 <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
@@ -345,110 +393,93 @@ a:hover {
     <b:includable id='comment_count_picker' var='post'/>
     <b:includable id='comment_picker' var='post'/>
     <b:includable id='comments' var='post'>
-  <div class='comments' id='comments'>
-    <a name='comments'/>
-    <b:if cond='data:post.allowComments'>
-      <h4><data:post.commentLabelFull/>:</h4>
+<div class='comments' id='comments'>
+<a name='comments'/>
+<b:if cond='data:post.allowComments'>
+<h2 class='comments-title'><data:post.commentLabelFull/>:</h2>
 
-      <b:if cond='data:post.commentPagingRequired'>
-        <span class='paging-control-container'>
-          <b:if cond='data:post.hasOlderLinks'>
-            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:post.oldestLinkText/></a>
-              &#160;
-            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:post.olderLinkText/></a>
-              &#160;
-          </b:if>
+<b:if cond='data:post.commentPagingRequired'>
+<span class='paging-control-container'>
+<b:if cond='data:post.hasOlderLinks'>
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:post.oldestLinkText/></a>
+&#160;
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:post.olderLinkText/></a>
+&#160;
+</b:if>
+<data:post.commentRangeText/>
+<b:if cond='data:post.hasNewerLinks'>
+&#160;
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:post.newerLinkText/></a>
+&#160;
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:post.newestLinkText/></a>
+</b:if>
+</span>
+</b:if>
 
-          <data:post.commentRangeText/>
+<div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+<div expr:class='data:post.avatarIndentClass' id='comments-block'>
+<b:loop values='data:post.comments' var='comment'>
+<div class='comment'>
+<div expr:class='&quot;comment-author &quot; + data:comment.authorClass' expr:id='data:comment.anchorName'>
+<a expr:name='data:comment.anchorName'/>
+<b:if cond='data:comment.authorUrl'>
+<a expr:href='data:comment.authorUrl' rel='nofollow'><data:comment.author/></a>
+<b:else/>
+<data:comment.author/>
+</b:if>
+</div>
+<div class='comment-body' expr:id='data:widget.instanceId + data:comment.cmtBodyIdPostfix'>
+<b:if cond='data:comment.isDeleted'>
+<span class='deleted-comment'><data:comment.body/></span>
+<b:else/>
+<data:comment.body/>
+</b:if>
+</div>
+<div class='comment-footer'>
+<span class='comment-timestamp'>
+<a expr:href='data:comment.url' title='Permalink Komentar'>
+<data:comment.timestamp/>
+</a>
+</span>
+</div>
+</div>
+</b:loop>
+</div>
+</div>
 
-          <b:if cond='data:post.hasNewerLinks'>
-            &#160;
-            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:post.newerLinkText/></a>
-            &#160;
-            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:post.newestLinkText/></a>
-          </b:if>
-        </span>
-      </b:if>
+<b:if cond='data:post.commentPagingRequired'>
+<span class='paging-control-container'>
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+<data:post.oldestLinkText/>
+</a>
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+<data:post.olderLinkText/>
+</a>
+&#160;
+<data:post.commentRangeText/>
+&#160;
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+<data:post.newerLinkText/>
+</a>
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+<data:post.newestLinkText/>
+</a>
+</span>
+</b:if>
 
-      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
-        <dl expr:class='data:post.avatarIndentClass' id='comments-block'>
-          <b:loop values='data:post.comments' var='comment'>
-            <dt expr:class='&quot;comment-author &quot; + data:comment.authorClass' expr:id='data:comment.anchorName'>
-              <b:if cond='data:comment.favicon'>
-                <img expr:src='data:comment.favicon' height='16px' style='margin-bottom:-2px;' width='16px'/>
-              </b:if>
-              <a expr:name='data:comment.anchorName'/>
-              <b:if cond='data:blog.enabledCommentProfileImages'>
-                <data:comment.authorAvatarImage/>
-              </b:if>
-              <b:if cond='data:comment.authorUrl'>
-                <a expr:href='data:comment.authorUrl' rel='nofollow'><data:comment.author/></a>
-              <b:else/>
-                <data:comment.author/>
-              </b:if>
-              <data:commentPostedByMsg/>
-            </dt>
-            <dd class='comment-body' expr:id='data:widget.instanceId + data:comment.cmtBodyIdPostfix'>
-              <b:if cond='data:comment.isDeleted'>
-                <span class='deleted-comment'><data:comment.body/></span>
-              <b:else/>
-                <p>
-                  <data:comment.body/>
-                </p>
-              </b:if>
-            </dd>
-            <dd class='comment-footer'>
-              <span class='comment-timestamp'>
-                <a expr:href='data:comment.url' title='comment permalink'>
-                  <data:comment.timestamp/>
-                </a>
-                <b:include data='comment' name='commentDeleteIcon'/>
-              </span>
-            </dd>
-          </b:loop>
-        </dl>
-      </div>
-
-      <b:if cond='data:post.commentPagingRequired'>
-        <span class='paging-control-container'>
-          <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
-            <data:post.oldestLinkText/>
-          </a>
-          <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
-            <data:post.olderLinkText/>
-          </a>
-          &#160;
-          <data:post.commentRangeText/>
-          &#160;
-          <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
-            <data:post.newerLinkText/>
-          </a>
-          <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
-            <data:post.newestLinkText/>
-          </a>
-        </span>
-      </b:if>
-
-      <p class='comment-footer'>
-        <b:if cond='data:post.embedCommentForm'>
-          <b:if cond='data:post.allowNewComments'>
-            <b:include data='post' name='comment-form'/>
-          <b:else/>
-            <data:post.noNewCommentsText/>
-          </b:if>
-        <b:elseif cond='data:post.allowComments'/>
-          <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><data:postCommentMsg/></a>
-        </b:if>
-      </p>
-    </b:if>
-    <b:if cond='data:showCmtPopup'>
-      <div id='comment-popup'>
-        <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
-        </iframe>
-      </div>
-    </b:if>
-
-  </div>
+<div class='comments-footer'>
+<b:if cond='data:post.embedCommentForm'>
+<b:if cond='data:post.allowNewComments'>
+<b:include data='post' name='comment-form'/>
+<b:else/>
+<data:post.noNewCommentsText/>
+</b:if>
+<b:elseif cond='data:post.allowComments'/>
+<a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><data:postCommentMsg/></a>
+</b:if>
+</div>
+</b:if>
+</div>
 </b:includable>
     <b:includable id='feedLinks'/>
     <b:includable id='feedLinksBody' var='links'/>
@@ -475,7 +506,7 @@ a:hover {
 <b:if cond='data:top.showTimestamp'>
 <div class='post-header'>
 <b:if cond='data:post.url'>
-<a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='Permalink'>
+<a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='Permalink Pos'>
 <time class='published' expr:title='data:post.timestampISO8601'>
 <b:if cond='data:view.isPost and data:post.dateHeader'>
 <data:post.dateHeader/>

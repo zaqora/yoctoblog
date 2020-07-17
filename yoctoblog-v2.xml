@@ -28,7 +28,40 @@ body {
   color: var(--teks);
   font-family: var(--sans-serif);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--sans-serif);
+  line-height: 1.25;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.375em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4, h5, h6 {
+  font-size: 1.125em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover);
+  text-decoration: underline;
 }
 
 .widget {

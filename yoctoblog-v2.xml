@@ -230,8 +230,20 @@ ol, ul {
   padding-bottom: 2.5em;
 }
 
+.post-thumbnail {
+  display: inline-block;
+  float: right;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  margin-left: 1.25em;
+}
+
 .item .post-title {
   font-size: 1.75em;
+}
+
+.feed .post-title {
+  font-weight: normal;
 }
 
 .post-title a {
@@ -340,22 +352,20 @@ ol, ul {
 }
 
 @media screen and (max-width: 35em) {
+  .separator a {
+    clear: none !important;
+    float: none !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
 
-.separator a {
-  clear: none !important;
-  float: none !important;
-  margin-right: auto !important;
-  margin-left: auto !important;
-}
-
-.tr-caption-container[style*="float: left;"],
-.tr-caption-container[style*="float: right;"] {
-  float: none !important;
-  margin-right: auto !important;
-  margin-bottom: 1.25em;
-  margin-left: auto !important;
-}
-
+  .tr-caption-container[style*="float: left;"],
+  .tr-caption-container[style*="float: right;"] {
+    float: none !important;
+    margin-right: auto !important;
+    margin-bottom: 1.25em;
+    margin-left: auto !important;
+  }
 }
 
 /* Comments */
@@ -591,8 +601,8 @@ ol, ul {
 <h3 class='comment-form-title'><data:postCommentMsg/></h3>
 <p class='comment-form-message'><data:blogCommentMessage/></p>
 <data:blogTeamBlogMessage/>
-<a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
-<iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+<a aria-label='Formulir Komentar' expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+<iframe allowtransparency='true' aria-label='Formulir Komentar' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
 <data:post.cmtfpIframe/>
 <script type='text/javascript'>
   BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
@@ -726,6 +736,14 @@ ol, ul {
 </time>
 </a>
 </b:if>
+</div>
+</b:if>
+
+<b:if cond='data:view.isMultipleItems and data:post.firstImageUrl'>
+<div class='post-thumbnail'>
+<a expr:aria-label='data:post.title' expr:href='data:post.url' expr:title='data:post.title'>
+<img alt='Gambar Thumbnail' expr:src='resizeImage(data:post.firstImageUrl, 100, &quot;1:1&quot;)'/>
+</a>
 </div>
 </b:if>
 

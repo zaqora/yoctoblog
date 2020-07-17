@@ -14,6 +14,7 @@
 ]]></b:skin>
 <b:template-skin><![CDATA[]]></b:template-skin>
 <b:include data='blog' name='google-analytics'/>
+<meta content='summary_large_image' name='twitter:card'/>
 &lt;!--</head>--&gt;&lt;/head&gt;
 
 <body expr:class='data:view.type + data:blog.mobileClass'>

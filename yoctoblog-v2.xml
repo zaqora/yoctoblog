@@ -667,7 +667,7 @@ a.twitter {
 <meta expr:content='data:post.snippet snippet { length: 100, links: false, linebreaks: false, ellipsis: false }' itemprop='headline'/>
 </b:if>
 <b:if cond='data:post.firstImageUrl'>
-<meta expr:content='data:post.firstImageUrl' itemprop='image'/>
+<meta expr:content='resizeImage ( data:post.firstImageUrl, 1200, "1200:630" )' itemprop='image'/>
 </b:if>
 <span itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
 <meta expr:content='data:post.author' itemprop='name'/>

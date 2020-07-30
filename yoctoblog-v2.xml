@@ -660,6 +660,7 @@ a.twitter {
 </div>
 </div>
 <b:else/>
+<article class='post'>
 <div class='post-breadcrumb' itemscope='itemscope' itemtype='https://schema.org/BreadcrumbList'>
 <span itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
 <a expr:href='data:blog.homepageUrl.canonical' itemprop='item'>
@@ -676,13 +677,11 @@ a.twitter {
 </b:loop>
 </b:if>
 </div>
-<article class='post'>
 <b:if cond='data:post.title'>
 <h1 class='post-title'>
 <data:post.title/>
 </h1>
 </b:if>
-<b:if cond='data:top.showTimestamp'>
 <div class='post-header'>
 <time class='published'>
 <b:if cond='data:post.dateHeader'>
@@ -692,7 +691,6 @@ a.twitter {
 </b:if>
 </time>
 </div>
-</b:if>
 <div class='post-body'>
 <data:post.body/>
 <div class='clear'/>

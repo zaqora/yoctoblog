@@ -44,7 +44,7 @@ html {
   }
 }
 
-/* General */
+/* Style */
 
 body {
   background-color: var(--latar);
@@ -303,18 +303,19 @@ textarea:focus {
   text-decoration: none;
 }
 
-/* Blog Message */
+/* Message */
 
 .post-filter {
-  color: var(--teks-sekunder);
+  border-left: 3px dashed var(--batas);
   margin-top: 2.5em;
+  padding: 0.5em 0 0.5em 1.25em;
 }
 
 .post-notfound {
   margin-top: 2.5em;
 }
 
-/* Featured Post */
+/* Featured */
 
 .featured-post {
   border-bottom: 1px solid var(--batas);
@@ -334,7 +335,7 @@ textarea:focus {
   margin-top: 1.25em;
 }
 
-/* Content */
+/* Post */
 
 .post {
   border-bottom: 1px dashed var(--batas);
@@ -345,6 +346,7 @@ textarea:focus {
 .post-breadcrumb {
   color: var(--teks-sekunder);
   margin-top: 2.5em;
+  margin-bottom: 1.25em;
 }
 
 .post-title a {
@@ -410,7 +412,7 @@ a.twitter {
   color: #657786;
 }
 
-/* Media & Embed */
+/* Media */
 
 .post-body iframe[src*="blogger"],
 .post-body iframe[src*="youtube"] {
@@ -476,7 +478,7 @@ a.twitter {
   }
 }
 
-/* Blog Pager */
+/* Navigation */
 
 .blog-pager {
   display: flex;
@@ -525,6 +527,26 @@ a.twitter {
   max-width: 40em;
   padding-right: 1.25em;
   padding-left: 1.25em;
+}
+
+@media screen and (min-width: 90em) {
+  body {
+    font-size: 20px;
+  }
+
+  .post-body {
+    font-size: 1em;
+  }
+
+  .separator a[style*="float: left;"],
+  .tr-caption-container[style*="float: left;"] {
+    margin-left: -2.5em !important;
+  }
+
+  .separator a[style*="float: right;"],
+  .tr-caption-container[style*="float: right;"] {
+    margin-right: -2.5em !important;
+  }
 }
 
 /* Random */
@@ -624,7 +646,7 @@ a.twitter {
 <b:if cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage'>
 <div class='featured-post-thumbnail'>
 <a expr:href='data:post.url'>
-<b:include data='{image: data:post.featuredImage, imageSizes: [400, 640], imageRatio: &quot;16:9&quot;, sourceSizes: &quot;(max-width: 440px) 400px, 640px&quot;, enhancedSourceset: data:highRes, altText: &quot;Gambar Utama&quot;}' name='responsiveImage'/>
+<b:include data='{image: data:post.featuredImage, imageSizes: [400, 640, 800], imageRatio: &quot;16:9&quot;, sourceSizes: &quot;(max-width: 440px) 400px, (max-width: 1440px) 640px, 800px&quot;, altText: &quot;Gambar Utama&quot;}' name='responsiveImage'/>
 </a>
 </div>
 </b:if>
@@ -700,15 +722,10 @@ a.twitter {
 <b:if cond='!data:view.isSingleItem'>
 <div class='post'>
 <b:if cond='data:post.title != &quot;&quot;'>
-<h2 class='post-title entry-title'>
-<b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
+<h2 class='post-title'>
 <a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
-<b:else/>
-<data:post.title/>
-</b:if>
 </h2>
 </b:if>
-
 <div class='post-header'>
 <a expr:href='data:post.url'>
 <time class='published' expr:datetime='data:post.date.iso8601'>
@@ -716,14 +733,12 @@ a.twitter {
 </time>
 </a>
 </div>
-
 <div class='post-snippet'>
 <b:if cond='data:post.featuredImage'>
 <a class='post-thumbnail' expr:href='data:post.url'>
-<b:include data='{image: data:post.featuredImage, imageSizes: [100], imageRatio: &quot;1:1&quot;, sourceSizes: &quot;100px&quot;}' name='responsiveImage'/>
+<img expr:alt='&quot;Gambar thumbnail untuk &quot; + data:post.title' expr:src='resizeImage(data:post.featuredImage, 100, &quot;1:1&quot;)'/>
 </a>
 </b:if>
-
 <b:eval expr='data:post.snippets.long snippet { length: 140, links: false, linebreaks: false, ellipsis: true }'/>
 <div class='clear'/>
 </div>
@@ -746,29 +761,26 @@ a.twitter {
 </b:loop>
 </b:if>
 </div>
-
 <b:if cond='data:post.title != &quot;&quot;'>
 <h1 class='post-title'>
 <data:post.title/>
 </h1>
 </b:if>
-
+<b:if cond='!data:view.isPage'>
 <div class='post-header'>
 <time class='published' expr:datetime='data:post.date.iso8601'>
 <data:post.date/>
 </time>
 </div>
-
+</b:if>
 <div class='post-body'>
 <data:post.body/>
 <div class='clear'/>
 </div>
-
 <div class='post-share'>
-Bagikan ke <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url'>Facebook</a> atau <a class='twitter' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title + &quot;&amp;via=ajiksip&quot;'>Twitter</a>
+Bagikan ke <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Facebook</a> atau <a class='twitter' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title + &quot;&amp;via=ajiksip&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Twitter</a>
 </div>
 </article>
-
 </b:if>
 </b:loop>
 
@@ -776,9 +788,7 @@ Bagikan ke <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/
 <b:if cond='data:newerPageUrl'>
 <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;'> « <span class='blog-pager-text'><data:messages.newerPosts/></span></a>
 </b:if>
-
 <a class='blog-pager-home-link' expr:href='data:blog.homepageUrl'><b:class cond='!data:newerPageUrl and !data:olderPageUrl' name='centered'/><span><data:messages.home/></span></a>
-
 <b:if cond='data:olderPageUrl'>
 <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;'><span class='blog-pager-text'><data:messages.olderPosts/></span> » </a>
 </b:if>
@@ -820,6 +830,5 @@ Bagikan ke <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/
     <b:includable id='threadedComments' var='post'/>
   </b:widget>
 </b:section>
-
 </body>
 </html>

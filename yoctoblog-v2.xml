@@ -304,14 +304,15 @@ textarea:focus {
   text-decoration: none;
 }
 
-/* Blog Message */
+/* Message */
 
 .blog-message {
-  color: var(--teks-sekunder);
+  border-left: 3px dashed var(--batas);
   margin-top: 2.5em;
+  padding: 0.5em 0 0.5em 1.25em;
 }
 
-/* Content */
+/* Post */
 
 .post {
   border-bottom: 1px dashed var(--batas);
@@ -322,7 +323,7 @@ textarea:focus {
 .post-breadcrumb {
   color: var(--teks-sekunder);
   margin-top: 2.5em;
-  margin-bottom: -1.25em;
+  margin-bottom: 1.25em;
 }
 
 .post-title a {
@@ -388,7 +389,7 @@ a.twitter {
   color: #657786;
 }
 
-/* Media & Embed */
+/* Media */
 
 .post-body iframe[src*="blogger"],
 .post-body iframe[src*="youtube"] {
@@ -454,7 +455,7 @@ a.twitter {
   }
 }
 
-/* Blog Pager */
+/* Navigation */
 
 .blog-pager {
   display: flex;
@@ -630,12 +631,6 @@ a.twitter {
 </div>
 </b:if>
 
-<b:if cond='data:view.isPost'>
-  <b:loop values='data:posts' var='post'>
-    
-  </b:loop>
-</b:if>
-
 <b:loop values='data:posts' var='post'>
 <b:if cond='!data:view.isSingleItem'>
 <div class='post'>
@@ -644,11 +639,13 @@ a.twitter {
 <a expr:href='data:post.link ? data:post.link : data:post.url'><data:post.title/></a>
 </h2>
 </b:if>
-<b:if cond='data:top.showTimestamp'>
 <div class='post-header'>
-<a expr:href='data:post.url'><time class='published'><data:post.timestamp/></time></a>
+<a expr:href='data:post.url'>
+<time class='published' expr:datetime='data:post.timestampISO8601'>
+<data:post.timestamp/>
+</time>
+</a>
 </div>
-</b:if>
 <div class='post-snippet'>
 <b:if cond='data:post.firstImageUrl'>
 <a class='post-thumbnail' expr:href='data:post.url'>
@@ -682,8 +679,9 @@ a.twitter {
 <data:post.title/>
 </h1>
 </b:if>
+<b:if cond='!data:view.isPage'>
 <div class='post-header'>
-<time class='published'>
+<time class='published' expr:datetime='data:post.timestampISO8601'>
 <b:if cond='data:post.dateHeader'>
 <data:post.dateHeader/>
 <b:else/>
@@ -691,18 +689,19 @@ a.twitter {
 </b:if>
 </time>
 </div>
+</b:if>
 <div class='post-body'>
 <data:post.body/>
 <div class='clear'/>
 </div>
 <div class='post-share'>
-Bagikan ke <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url'>Facebook</a> atau <a class='twitter' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title + &quot;&amp;via=ajiksip&quot;'>Twitter</a>
+Bagikan ke <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Facebook</a> atau <a class='twitter' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title + &quot;&amp;via=ajiksip&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Twitter</a>
 </div>
 </article>
 </b:if>
 </b:loop>
 
-<nav class='blog-pager' role='navigation'>
+<div class='blog-pager'>
 <b:if cond='data:newerPageUrl'>
 <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;'> « <span class='blog-pager-text'><data:newerPageTitle/></span></a>
 </b:if>
@@ -710,7 +709,7 @@ Bagikan ke <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/
 <b:if cond='data:olderPageUrl'>
 <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;'><span class='blog-pager-text'><data:olderPageTitle/></span> » </a>
 </b:if>
-</nav>
+</div>
 </b:includable>
     <b:includable id='backlinkDeleteIcon' var='backlink'/>
     <b:includable id='backlinks' var='post'/>

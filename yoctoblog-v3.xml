@@ -331,6 +331,18 @@ textarea:focus {
   color: var(--layang);
 }
 
+.featured-post-header {
+  color: var(--teks-sekunder);
+}
+
+.featured-post-header a {
+  color: var(--teks-sekunder);
+}
+
+.featured-post-header a:hover {
+  color: var(--layang);
+}
+
 .featured-post-snippet {
   margin-top: 1.25em;
 }
@@ -570,15 +582,6 @@ a.twitter {
 
 <body expr:class='data:view.type'>
 
-<b:if cond='!data:view.isSingleItem'>
-<div class='hidden' itemscope='itemscope' itemtype='http://schema.org/Blog'>
-<meta expr:content='data:blog.title' itemprop='name'/>
-<b:if cond='data:blog.metaDescription'>
-<meta expr:content='data:blog.metaDescription' itemprop='description'/>
-</b:if>
-</div>
-</b:if>
-
 <b:section cond='!data:view.isSingleItem' id='Header'>
   <b:widget id='Header1' locked='false' title='Aji Enam (Header)' type='Header' visible='true'>
     <b:widget-settings>
@@ -655,6 +658,13 @@ a.twitter {
 <a expr:href='data:post.url'><data:post.title/></a>
 </h2>
 </b:if>
+<div class='featured-post-header'>
+<a expr:href='data:post.url'>
+<time class='published' expr:datetime='data:post.date.iso8601'>
+<data:post.date/>
+</time>
+</a>
+</div>
 <b:if cond='data:this.postDisplay.showSnippet'>
 <div class='featured-post-snippet'>
 <b:eval expr='data:post.snippets.long snippet { length: 140, links: false, linebreaks: false, ellipsis: true }'/>
@@ -745,7 +755,33 @@ a.twitter {
 </div>
 <b:else/>
 <article class='post'>
+<script type='application/ld+json'>{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "dateModified": "<data:post.lastUpdated.iso8601/>",
+  "datePublished": "<data:post.date.iso8601/>",
+  "headline": "<b:if cond='data:post.title != &quot;&quot;'><data:post.title/><b:else/><b:eval expr='data:post.snippets.short snippet { length: 90, links: false, linebreaks: false, ellipsis: false }'/></b:if>",
+  "image": {
+    "@type": "ImageObject",
+    "url": "<b:eval expr='(data:post.featuredImage ? resizeImage ( data:post.featuredImage, 1200, "1200:630" ) : "https://lh3.googleusercontent.com/ULB6iBuCeTVvSjjjU1A-O8e9ZpVba6uvyhtiWRti_rBAs9yMYOFBujxriJRZ-A=h630")'/>"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "<data:post.author.name/>"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blogger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lh3.googleusercontent.com/ULB6iBuCeTVvSjjjU1A-O8e9ZpVba6uvyhtiWRti_rBAs9yMYOFBujxriJRZ-A=h60"
+    }
+  },
+  "mainEntityOfPage": "<data:post.url/>"
+}
+</script>
 <div class='post-breadcrumb' itemscope='itemscope' itemtype='https://schema.org/BreadcrumbList'>
+<meta content='Breadcrumb' itemprop='name'/>
 <span itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
 <a expr:href='data:blog.homepageUrl.canonical' itemprop='item'>
 <meta content='1' itemprop='position'/>

@@ -658,6 +658,28 @@ a.twitter {
 </div>
 <b:else/>
 <article class='post'>
+<div class='hidden' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+<meta expr:content='data:post.lastUpdatedISO8601' itemprop='dateModified'/>
+<meta expr:content='data:post.timestampISO8601' itemprop='datePublished'/>
+<b:if cond='data:post.title'>
+<meta expr:content='data:post.title' itemprop='headline'/>
+<b:else/>
+<meta expr:content='data:post.snippet snippet { length: 100, links: false, linebreaks: false, ellipsis: false }' itemprop='headline'/>
+</b:if>
+<b:if cond='data:post.firstImageUrl'>
+<meta expr:content='data:post.firstImageUrl' itemprop='image'/>
+</b:if>
+<span itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+<meta expr:content='data:post.author' itemprop='name'/>
+</span>
+<span itemprop='publisher' itemscope='itemscope' itemtype='http://schema.org/Organization'>
+<meta content='Blogger' itemprop='name'/>
+<span itemprop='logo' itemscope='itemscope' itemtype='http://schema.org/ImageObject'>
+<meta content='https://lh3.googleusercontent.com/ULB6iBuCeTVvSjjjU1A-O8e9ZpVba6uvyhtiWRti_rBAs9yMYOFBujxriJRZ-A=h60' itemprop='url'/>
+</span>
+</span>
+<meta expr:content='data:post.url' itemprop='mainEntityOfPage'/>
+</div>
 <div class='post-breadcrumb' itemscope='itemscope' itemtype='https://schema.org/BreadcrumbList'>
 <span itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
 <a expr:href='data:blog.homepageUrl.canonical' itemprop='item'>

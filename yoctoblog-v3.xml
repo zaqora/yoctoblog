@@ -1,67 +1,247 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:defaultwidgetversion='2' b:js='false' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
 <meta content='width=device-width, initial-scale=1' name='viewport'/>
 <title><data:view.title.escaped/></title>
 <b:include data='blog' name='all-head-content'/>
-<b:skin><![CDATA[
+<b:skin><![CDATA[/*
+--------------------------------------------------
+Yoctoblog Blogger Template
+
+Developer:  Aji Kurniawan
+URL:        https://github.com/ajiksip/yoctoblog
+Variant:    Widget Version 2
+-------------------------------------------------- */
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
 
 /* Variable */
 
 html {
-  --font-monospace: monospace, monospace;
-  --font-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace, monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --font-serif: Georgia, serif;
 
-  --background: #fff;
-  --background-secondary: #eee;
-  --border: #ddd;
-  --text: #333;
-  --text-secondary: #666;
-  --link: #069;
-  --hover: #09c;
+  --teks: #333;
+  --teks-sekunder: #666;
+  --latar: #fff;
+  --latar-sekunder: #eee;
+  --batas: #ccc;
+  --tautan: #069;
+  --layang: #09c;
 }
 
+@media (prefers-color-scheme: dark) {
+  html {
+    --teks: #eee;
+    --teks-sekunder: #bbb;
+    --latar: #333;
+    --latar-sekunder: #444;
+    --batas: #666;
+    --tautan: #6cf; 
+    --layang: #69c;
+  }
+}
+
+/* General */
+
 body {
-  color: var(--text);
-  font-family: var(--font-sans-serif);
+  background-color: var(--latar);
+  color: var(--teks);
+  font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans-serif);
-  line-height: 1.25;
-  margin: 0;
-}
-
-h1 {
-  font-size: 1.5em;
-}
-
-h2 {
-  font-size: 1.375em;
-}
-
-h3 {
-  font-size: 1.25em;
-}
-
-h4, h5, h6 {
-  font-size: 1.125em;
-}
-
 a {
-  color: var(--link);
+  color: var(--tautan);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--hover);
+  color: var(--layang);
   text-decoration: underline;
 }
+
+blockquote {
+  border-left: 1px dashed var(--batas);
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+blockquote cite {
+  display: block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+code {
+  background-color: var(--latar-sekunder);
+  font-size: 0.875em;
+  padding: 0.25em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  line-height: 1.25;
+  margin-top: 0.85em;
+  margin-bottom: 0.15em;
+}
+
+h1 {
+  font-size: 1.75em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.375em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+h5, h6 {
+  font-size: 1.125em;
+}
+
+hr {
+  background-color: var(--batas);
+  border: 0;
+  height: 1px;
+  margin: 1.25em auto;
+  max-width: 50%;
+}
+
+iframe {
+  border-width: 0;
+  width: 100%;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+input {
+  background-color: var(--latar-sekunder);
+  border: 1px solid var(--batas);
+  box-sizing: border-box;
+  color: var(--teks-sekunder);
+  font-family: var(--font-sans);
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  padding: 0.25em 0.5em;
+  width: 100%;
+}
+
+input:focus {
+  background-color: var(--latar);
+  border-color: var(--layang);
+  color: var(--teks);
+}
+
+input[name=name],
+input[name=email] {
+  max-width: 15em;
+}
+
+input[type=button],
+input[type=submit] {
+  background-color: #069;
+  border: 0;
+  border-radius: 0.25em;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: var(--font-sans);
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 0;
+  padding: 0.5em 1em;
+  width: auto;
+}
+
+input[type=button]:hover,
+input[type=submit]:hover {
+  background-color: #09c;
+}
+
+mark {
+  background-color: var(--latar-sekunder);
+  color: var(--teks);
+  padding: 0.25em;
+}
+
+ol, ul {
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+pre {
+  background-color: var(--latar-sekunder);
+  font-size: 0.875em;
+  margin: 0;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+pre code {
+  font-size: 1em;
+  padding: 0;
+}
+
+.mobile pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 27.5em) {
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+textarea {
+  background-color: var(--latar-sekunder);
+  border: 1px solid var(--batas);
+  box-sizing: border-box;
+  color: var(--teks-sekunder);
+  font-family: var(--font-sans);
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  padding: 0.25em 0.5em;
+  width: 100%;
+}
+
+textarea:focus {
+  background-color: var(--latar);
+  border-color: var(--layang);
+  color: var(--teks);
+}
+
+::-moz-selection {
+  background-color: var(--latar-sekunder);
+}
+
+::selection {
+  background-color: var(--latar-sekunder);
+}
+
+/* Layout */
 
 .widget {
   margin-right: auto;
@@ -71,48 +251,15 @@ a:hover {
   padding-left: 1.25em;
 }
 
-.Header {
-  margin-top: 2.5em;
+/* Random */
+
+.clear {
+  clear: both;
 }
 
-.PageList {
-  margin-top: 1.25em;
+.hidden {
+  display: none;
 }
-
-.post {
-  border-bottom: 1px solid var(--border);
-  margin-top: 2.5em;
-  padding-bottom: 1.25em;
-}
-
-.post-header {
-  margin-top: 0.625em;
-}
-
-.post-body {
-  margin-top: 1.25em;
-}
-
-.jump-link {
-  margin-top: 0.625em;
-}
-
-.post-footer {
-  margin-top: 1.25em;
-}
-
-.post-footer-line {
-  margin-top: 0.625em;
-}
-
-.blog-pager {
-  margin-top: 2.5em;
-}
-
-.blog-feeds {
-  margin-top: 1.25em;
-}
-
 ]]></b:skin>
 <b:template-skin><![CDATA[]]></b:template-skin>
 <b:defaultmarkups/>
@@ -120,12 +267,21 @@ a:hover {
 <script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'/>
 </b:if>
 <b:include data='blog' name='google-analytics'/>
-</head>
+<meta content='summary_large_image' name='twitter:card'/>
+&lt;!--</head>--&gt;&lt;/head&gt;
 
 <body expr:class='data:view.type'>
 
-<header role='banner'>
-<b:section class='blog-header' id='Header'>
+<b:if cond='!data:view.isSingleItem'>
+<div class='hidden' itemscope='itemscope' itemtype='http://schema.org/Blog'>
+<meta expr:content='data:blog.title' itemprop='name'/>
+<b:if cond='data:blog.metaDescription'>
+<meta expr:content='data:blog.metaDescription' itemprop='description'/>
+</b:if>
+</div>
+</b:if>
+
+<b:section id='Header'>
   <b:widget id='Header1' locked='false' title='Aji Enam (Header)' type='Header' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='displayUrl'/>
@@ -175,10 +331,8 @@ a:hover {
   </b:includable>
   </b:widget>
 </b:section>
-</header>
 
-<nav role='navigation'>
-<b:section class='blog-menu' id='Menu'>
+<b:section id='Navigation'>
   <b:widget id='PageList1' locked='false' title='' type='PageList' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://aji6.blogspot.com/', 'title': 'Beranda', 'position': 0}, '2452061744372873149': {'href': 'https://aji6.blogspot.com/p/kontak.html', 'title': 'Kontak', 'position': 1}, '909453377791400136': {'href': 'https://aji6.blogspot.com/p/tentang.html', 'title': 'Tentang', 'position': 2}, 'link0': {'href': 'https://www.google.co.id', 'title': 'Google Indonesia', 'position': 3}, 'link1': {'href': 'https://id-id.facebook.com', 'title': 'Facebook Indonesia', 'position': 4}}]]></b:widget-setting>
@@ -230,10 +384,22 @@ a:hover {
 </b:includable>
   </b:widget>
 </b:section>
-</nav>
 
-<main role='main'>
-<b:section class='blog-content' id='Content'>
+<b:section id='Main'>
+  <b:widget id='FeaturedPost1' locked='false' title='Entri yang Diunggulkan' type='FeaturedPost' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='showSnippet'>true</b:widget-setting>
+      <b:widget-setting name='showPostTitle'>true</b:widget-setting>
+      <b:widget-setting name='showFirstImage'>true</b:widget-setting>
+      <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='this'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <b:include name='snippetedPosts'/>
+  </div>
+</b:includable>
+  </b:widget>
   <b:widget id='Blog1' locked='false' title='Posting Blog' type='Blog' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='showDateHeader'>false</b:widget-setting>
@@ -645,15 +811,6 @@ a:hover {
 </b:includable>
   </b:widget>
 </b:section>
-</main>
-
-<aside role='complementary'>
-<b:section class='blog-aside' id='Aside'/>
-</aside>
-
-<footer role='contentinfo'>
-<b:section class='blog-footer' id='Footer'/>
-</footer>
 
 </body>
 </html>

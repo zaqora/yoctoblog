@@ -170,7 +170,7 @@ input[type=submit] {
   font-weight: normal;
   line-height: 1.5;
   margin-bottom: 0;
-  padding: 0.5em 1em;
+  padding: 0.375em 0.75em;
   width: auto;
 }
 
@@ -308,6 +308,8 @@ textarea:focus {
 
 .blog-message {
   border-left: 3px dashed var(--batas);
+  font-size: 1.125em;
+  line-height: 1.75;
   margin-top: 2.5em;
   padding: 0.5em 0 0.5em 1.25em;
 }

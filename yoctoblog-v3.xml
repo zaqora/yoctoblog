@@ -311,6 +311,15 @@ textarea:focus {
   padding: 0.5em 0 0.5em 1.25em;
 }
 
+.search-label,
+.search-query {
+  font-weight: bold;
+}
+
+.show-all {
+  margin-top: 0.5em;
+}
+
 .post-notfound {
   margin-top: 2.5em;
 }
@@ -709,7 +718,7 @@ a.twitter {
 <b:elseif cond='data:view.isSearch and data:view.search.resultsMessageHtml'/>
 <data:view.search.resultsMessageHtml/>
 </b:if>
-<span class='show-all'><a expr:href='data:blog.homepageUrl'><data:messages.showAll/></a></span>
+<div class='show-all'><a expr:href='data:blog.homepageUrl'><data:messages.showAll/></a></div>
 <div class='clear'/>
 </div>
 <b:elseif cond='data:view.isError'/>

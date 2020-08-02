@@ -545,7 +545,7 @@ a.twitter {
 
 <body expr:class='data:view.type + data:blog.mobileClass'>
 
-<b:section cond='!data:view.isSingleItem' id='Header' name='Header'>
+<b:section cond='!data:view.isPost' id='Header' name='Header'>
   <b:widget id='Header1' locked='false' title='Aji Enam (Header)' type='Header'>
     <b:widget-settings>
       <b:widget-setting name='displayUrl'/>
@@ -571,7 +571,7 @@ a.twitter {
   </b:widget>
 </b:section>
 
-<b:section cond='!data:view.isSingleItem' id='Navigation' name='Navigation'>
+<b:section cond='!data:view.isPost' id='Navigation' name='Navigation'>
   <b:widget id='PageList1' locked='false' title='' type='PageList'>
     <b:widget-settings>
       <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://aji6.blogspot.com/', 'title': 'Beranda', 'position': 0}, '2452061744372873149': {'href': 'https://aji6.blogspot.com/p/kontak.html', 'title': 'Kontak', 'position': 1}, '909453377791400136': {'href': 'https://aji6.blogspot.com/p/tentang.html', 'title': 'Tentang', 'position': 2}, 'link0': {'href': 'https://www.google.co.id', 'title': 'Google Indonesia', 'position': 3}, 'link1': {'href': 'https://id-id.facebook.com', 'title': 'Facebook Indonesia', 'position': 4}}]]></b:widget-setting>

@@ -595,7 +595,7 @@ a.twitter {
 
 <body expr:class='data:view.type'>
 
-<b:section cond='!data:view.isSingleItem' id='Header'>
+<b:section cond='!data:view.isPost' id='Header'>
   <b:widget id='Header1' locked='false' title='Aji Enam (Header)' type='Header' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='displayUrl'/>
@@ -623,7 +623,7 @@ a.twitter {
   </b:widget>
 </b:section>
 
-<b:section cond='!data:view.isSingleItem' id='Navigation'>
+<b:section cond='!data:view.isPost' id='Navigation'>
   <b:widget id='PageList1' locked='false' title='' type='PageList' visible='true'>
     <b:widget-settings>
       <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://aji6.blogspot.com/', 'title': 'Beranda', 'position': 0}, '2452061744372873149': {'href': 'https://aji6.blogspot.com/p/kontak.html', 'title': 'Kontak', 'position': 1}, '909453377791400136': {'href': 'https://aji6.blogspot.com/p/tentang.html', 'title': 'Tentang', 'position': 2}, 'link0': {'href': 'https://www.google.co.id', 'title': 'Google Indonesia', 'position': 3}, 'link1': {'href': 'https://id-id.facebook.com', 'title': 'Facebook Indonesia', 'position': 4}}]]></b:widget-setting>
@@ -766,6 +766,43 @@ a.twitter {
 <div class='clear'/>
 </div>
 </div>
+<b:elseif cond='data:view.isPage'/>
+<article class='post'>
+<script type='application/ld+json'>{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "dateModified": "<data:post.lastUpdated.iso8601/>",
+  "datePublished": "<data:post.date.iso8601/>",
+  "headline": "<b:if cond='data:post.title != &quot;&quot;'><data:post.title/><b:else/><b:eval expr='data:post.snippets.short snippet { length: 90, links: false, linebreaks: false, ellipsis: false }'/></b:if>",
+  "image": {
+    "@type": "ImageObject",
+    "url": "<b:eval expr='(data:post.featuredImage ? resizeImage ( data:post.featuredImage, 1200, "1200:630" ) : "https://lh3.googleusercontent.com/ULB6iBuCeTVvSjjjU1A-O8e9ZpVba6uvyhtiWRti_rBAs9yMYOFBujxriJRZ-A=h630")'/>"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "<data:post.author.name/>"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blogger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lh3.googleusercontent.com/ULB6iBuCeTVvSjjjU1A-O8e9ZpVba6uvyhtiWRti_rBAs9yMYOFBujxriJRZ-A=h60"
+    }
+  },
+  "mainEntityOfPage": "<data:post.url/>"
+}
+</script>
+<b:if cond='data:post.title != &quot;&quot;'>
+<h1 class='post-title'>
+<data:post.title/>
+</h1>
+</b:if>
+<div class='post-body'>
+<data:post.body/>
+<div class='clear'/>
+</div>
+</article>
 <b:else/>
 <article class='post'>
 <script type='application/ld+json'>{
@@ -815,13 +852,11 @@ a.twitter {
 <data:post.title/>
 </h1>
 </b:if>
-<b:if cond='!data:view.isPage'>
 <div class='post-header'>
 <time class='published' expr:datetime='data:post.date.iso8601'>
 <data:post.date/>
 </time>
 </div>
-</b:if>
 <div class='post-body'>
 <data:post.body/>
 <div class='clear'/>

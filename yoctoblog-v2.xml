@@ -649,6 +649,43 @@ a.twitter {
 <div class='clear'/>
 </div>
 </div>
+<b:elseif cond='data:view.isPage'/>
+<article class='post'>
+<script type='application/ld+json'>{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "dateModified": "<data:post.timestampISO8601/>",
+  "datePublished": "<data:post.lastUpdatedISO8601/>",
+  "headline": "<b:if cond='data:post.title != &quot;&quot;'><data:post.title/><b:else/><b:eval expr='data:post.snippet snippet { length: 90, links: false, linebreaks: false, ellipsis: false }'/></b:if>",
+  "image": {
+    "@type": "ImageObject",
+    "url": "<b:eval expr='(data:post.firstImageUrl ? resizeImage ( data:post.firstImageUrl, 1200, "1200:630" ) : "https://lh3.googleusercontent.com/ULB6iBuCeTVvSjjjU1A-O8e9ZpVba6uvyhtiWRti_rBAs9yMYOFBujxriJRZ-A=h630")'/>"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "<data:post.author/>"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blogger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lh3.googleusercontent.com/ULB6iBuCeTVvSjjjU1A-O8e9ZpVba6uvyhtiWRti_rBAs9yMYOFBujxriJRZ-A=h60"
+    }
+  },
+  "mainEntityOfPage": "<data:post.url/>"
+}
+</script>
+<b:if cond='data:post.title'>
+<h1 class='post-title'>
+<data:post.title/>
+</h1>
+</b:if>
+<div class='post-body'>
+<data:post.body/>
+<div class='clear'/>
+</div>
+</article>
 <b:else/>
 <article class='post'>
 <script type='application/ld+json'>{
@@ -698,7 +735,6 @@ a.twitter {
 <data:post.title/>
 </h1>
 </b:if>
-<b:if cond='!data:view.isPage'>
 <div class='post-header'>
 <time class='published' expr:datetime='data:post.timestampISO8601'>
 <b:if cond='data:post.dateHeader'>
@@ -708,7 +744,6 @@ a.twitter {
 </b:if>
 </time>
 </div>
-</b:if>
 <div class='post-body'>
 <data:post.body/>
 <div class='clear'/>

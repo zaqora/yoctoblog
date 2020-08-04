@@ -308,7 +308,7 @@ textarea:focus {
 /* Message */
 
 .blog-message {
-  background: var(--latar);
+  background: var(--latar-sekunder);
   border-radius: 0.25em;
   box-shadow: var(--bayangan);
   margin-top: 2.5em;

@@ -21,7 +21,7 @@ Variant:    Widget Version 1
 
 html {
   --font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace, monospace;
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --font-serif: Georgia, serif;
 
   --teks: #333;
@@ -29,6 +29,7 @@ html {
   --latar: #fff;
   --latar-sekunder: #eee;
   --batas: #ccc;
+  --bayangan: 0px 2px 3px rgba(0, 0, 0, 0.15);
   --tautan: #069;
   --layang: #09c;
 }
@@ -307,11 +308,11 @@ textarea:focus {
 /* Message */
 
 .blog-message {
-  border-left: 3px dashed var(--batas);
-  font-size: 1.125em;
-  line-height: 1.75;
+  background: var(--latar);
+  border-radius: 0.25em;
+  box-shadow: var(--bayangan);
   margin-top: 2.5em;
-  padding: 0.5em 0 0.5em 1.25em;
+  padding: 1em;
 }
 
 /* Post */

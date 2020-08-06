@@ -541,15 +541,8 @@ a.twitter {
 
   .blog-pager-newer-link,
   .blog-pager-older-link {
-    font-size: 2em;
-  }
-
-  .blog-pager-home-link {
-    line-height: 3.5;
-  }
-
-  .blog-pager-home-link.centered {
-    line-height: 1.5;
+    font-size: 3em;
+    line-height: 0.25;
   }
 }
 

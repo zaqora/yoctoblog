@@ -407,6 +407,10 @@ textarea:focus {
   margin-top: 2.5em;
 }
 
+.post-body h1 {
+  font-size: 1.5em;
+}
+
 .post-body a {
   border-bottom: 2px solid var(--secondary-background-color);
 }
@@ -691,7 +695,7 @@ a.twitter {
 <div class='post-snippet'>
 <b:if cond='data:post.firstImageUrl'>
 <a class='post-thumbnail' expr:href='data:post.url'>
-<img expr:alt='&quot;Gambar thumbnail untuk &quot; + data:post.title' expr:src='resizeImage(data:post.firstImageUrl, 100, &quot;1:1&quot;)'/>
+<img expr:alt='&quot;Featured image for &quot; + data:post.title' expr:src='resizeImage(data:post.firstImageUrl, 100, &quot;1:1&quot;)'/>
 </a>
 </b:if>
 <data:post.snippet/>

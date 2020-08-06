@@ -429,6 +429,10 @@ textarea:focus {
   margin-top: 2.5em;
 }
 
+.post-body h1 {
+  font-size: 1.5em;
+}
+
 .post-body a {
   border-bottom: 2px solid var(--secondary-background-color);
 }
@@ -690,7 +694,7 @@ a.twitter {
 <b:if cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage'>
 <div class='featured-post-thumbnail'>
 <a expr:href='data:post.url'>
-<b:include data='{image: data:post.featuredImage, imageSizes: [400, 640, 800], imageRatio: &quot;16:9&quot;, sourceSizes: &quot;(max-width: 440px) 400px, (max-width: 1440px) 640px, 800px&quot;, altText: &quot;Gambar Utama&quot;}' name='responsiveImage'/>
+<b:include data='{image: data:post.featuredImage, imageSizes: [400, 640, 800], imageRatio: &quot;16:9&quot;, sourceSizes: &quot;(max-width: 440px) 400px, (max-width: 1440px) 640px, 800px&quot;, altText: &quot;Featured Image&quot;}' name='responsiveImage'/>
 </a>
 </div>
 </b:if>
@@ -787,7 +791,7 @@ a.twitter {
 <div class='post-snippet'>
 <b:if cond='data:post.featuredImage'>
 <a class='post-thumbnail' expr:href='data:post.url'>
-<img expr:alt='&quot;Gambar thumbnail untuk &quot; + data:post.title' expr:src='resizeImage(data:post.featuredImage, 100, &quot;1:1&quot;)'/>
+<img expr:alt='&quot;Featured image for &quot; + data:post.title' expr:src='resizeImage(data:post.featuredImage, 100, &quot;1:1&quot;)'/>
 </a>
 </b:if>
 <b:eval expr='data:post.snippets.long snippet { length: 140, links: false, linebreaks: false, ellipsis: true }'/>

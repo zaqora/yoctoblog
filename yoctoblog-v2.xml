@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html b:css='false' b:js='false' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
-
 <head>
 <meta content='width=device-width, initial-scale=1' name='viewport'/>
 <title><data:view.title.escaped/></title>
@@ -12,7 +11,7 @@ Yoctoblog Blogger Template
 
 Developer:  Aji Kurniawan
 URL:        https://github.com/ajiksip/yoctoblog
-Variant:    Widget Version 1
+Variant:    Widget Version 2
 -------------------------------------------------- */
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
@@ -20,85 +19,88 @@ Variant:    Widget Version 1
 /* Variable */
 
 html {
-  --font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace, monospace;
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-monospace: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace, monospace;
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --font-serif: Georgia, serif;
 
-  --teks: #333;
-  --teks-sekunder: #666;
-  --latar: #fff;
-  --latar-sekunder: #eee;
-  --batas: #ccc;
-  --bayangan: 0px 2px 3px rgba(0, 0, 0, 0.15);
-  --tautan: #069;
-  --layang: #09c;
+  --text-color: #333;
+  --secondary-text-color: #666;
+  --background-color: #fff;
+  --secondary-background-color: #eee;
+  --border-color: #ccc;
+  --link-color: #069;
+  --link-hover-color: #09c;
+
+  --box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
 }
+
+/* Dark Theme */
 
 @media (prefers-color-scheme: dark) {
   html {
-    --teks: #eee;
-    --teks-sekunder: #bbb;
-    --latar: #333;
-    --latar-sekunder: #444;
-    --batas: #666;
-    --tautan: #6cf; 
-    --layang: #69c;
+    --text-color: #eee;
+    --secondary-text-color: #bbb;
+    --background-color: #333;
+    --secondary-background-color: #444;
+    --border-color: #666;
+    --link-color: #69c; 
+    --link-hover-color: #6cf;
   }
 }
 
-/* General */
+/* General Style */
 
 body {
-  background-color: var(--latar);
-  color: var(--teks);
-  font-family: var(--font-sans);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-sans-serif);
   font-size: 16px;
   line-height: 1.5;
 }
 
 a {
-  color: var(--tautan);
+  color: var(--link-color);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--layang);
+  color: var(--link-hover-color);
   text-decoration: underline;
 }
 
 blockquote {
-  border-left: 1px dashed var(--batas);
+  border-left: 1px dashed var(--border-color);
   margin: 0;
   padding-left: 1.25em;
 }
 
 blockquote cite {
   display: block;
-  font-family: var(--font-sans);
+  font-family: var(--font-sans-serif);
   font-style: normal;
   font-weight: bold;
   margin-top: 0.5em;
 }
 
-code, pre {
-  font-family: var(--font-mono);
+code, kbd, pre {
+  font-family: var(--font-monospace);
 }
 
 code {
-  background-color: var(--latar-sekunder);
+  background-color: var(--secondary-background-color);
   font-size: 0.875em;
   padding: 0.25em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans);
+  font-family: var(--font-sans-serif);
   line-height: 1.25;
   margin-top: 0.85em;
   margin-bottom: 0.15em;
 }
 
 h1 {
-  font-size: 1.75em;
+  font-size: 2em;
 }
 
 h2 {
@@ -118,7 +120,7 @@ h5, h6 {
 }
 
 hr {
-  background-color: var(--batas);
+  background-color: var(--border-color);
   border: 0;
   height: 1px;
   margin: 1.25em auto;
@@ -136,11 +138,11 @@ img {
 }
 
 input {
-  background-color: var(--latar-sekunder);
-  border: 1px solid var(--batas);
+  background-color: var(--secondary-background-color);
+  border: 1px solid var(--border-color);
   box-sizing: border-box;
-  color: var(--teks-sekunder);
-  font-family: var(--font-sans);
+  color: var(--secondary-text-color);
+  font-family: var(--font-sans-serif);
   font-size: 1em;
   line-height: 1.5;
   margin-bottom: 1em;
@@ -149,9 +151,9 @@ input {
 }
 
 input:focus {
-  background-color: var(--latar);
-  border-color: var(--layang);
-  color: var(--teks);
+  background-color: var(--background-color);
+  border-color: var(--link-hover-color);
+  color: var(--text-color);
 }
 
 input[name=name],
@@ -163,15 +165,16 @@ input[type=button],
 input[type=submit] {
   background-color: #069;
   border: 0;
-  border-radius: 0.25em;
+  border-radius: 0.125em;
+  box-shadow: var(--box-shadow);
   color: #fff;
   cursor: pointer;
   font-size: 1em;
-  font-family: var(--font-sans);
+  font-family: var(--font-sans-serif);
   font-weight: normal;
   line-height: 1.5;
   margin-bottom: 0;
-  padding: 0.375em 0.75em;
+  padding: 0.375em 1em;
   width: auto;
 }
 
@@ -180,9 +183,16 @@ input[type=submit]:hover {
   background-color: #09c;
 }
 
+kbd {
+  background-color: var(--secondary-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  padding: 0.125em;
+}
+
 mark {
-  background-color: var(--latar-sekunder);
-  color: var(--teks);
+  background-color: var(--secondary-background-color);
+  color: var(--text-color);
   padding: 0.25em;
 }
 
@@ -192,7 +202,7 @@ ol, ul {
 }
 
 pre {
-  background-color: var(--latar-sekunder);
+  background-color: var(--secondary-background-color);
   font-size: 0.875em;
   margin: 0;
   overflow-x: auto;
@@ -217,11 +227,11 @@ pre code {
 }
 
 textarea {
-  background-color: var(--latar-sekunder);
-  border: 1px solid var(--batas);
+  background-color: var(--secondary-background-color);
+  border: 1px solid var(--border-color);
   box-sizing: border-box;
-  color: var(--teks-sekunder);
-  font-family: var(--font-sans);
+  color: var(--secondary-text-color);
+  font-family: var(--font-sans-serif);
   font-size: 1em;
   line-height: 1.5;
   margin-bottom: 1em;
@@ -230,20 +240,20 @@ textarea {
 }
 
 textarea:focus {
-  background-color: var(--latar);
-  border-color: var(--layang);
-  color: var(--teks);
+  background-color: var(--background-color);
+  border-color: var(--link-hover-color);
+  color: var(--text-color);
 }
 
 ::-moz-selection {
-  background-color: var(--latar-sekunder);
+  background-color: var(--secondary-background-color);
 }
 
 ::selection {
-  background-color: var(--latar-sekunder);
+  background-color: var(--secondary-background-color);
 }
 
-/* Header */
+/* Blog Header */
 
 .Header {
   margin-top: 2.5em;
@@ -270,7 +280,32 @@ textarea:focus {
   color: var(--layang);
 }
 
-/* Menu */
+.Header {
+  margin-top: 2.5em;
+}
+
+.Header h1 {
+  display: inline-block;
+  font-size: 1.125em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.Header p {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.blog-title a {
+  color: var(--text-color);
+}
+
+.blog-title a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Blog Navigation */
 
 .PageList {
   margin-top: 1em;
@@ -296,57 +331,58 @@ textarea:focus {
 }
 
 .PageList li.selected a {
-  color: var(--teks);
-  text-decoration: underline;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-color);
 }
 
 .PageList li.selected a:hover {
-  color: var(--layang);
+  border-color: var(--link-hover-color);
+  color: var(--link-hover-color);
   text-decoration: none;
 }
 
-/* Message */
+/* Blog Message */
 
 .blog-message {
-  background: var(--latar-sekunder);
+  background: var(--secondary-background-color);
   border-radius: 0.25em;
-  box-shadow: var(--bayangan);
+  box-shadow: var(--box-shadow);
   margin-top: 2.5em;
   padding: 1em;
 }
 
-/* Post */
+/* General Post */
 
 .post {
-  border-bottom: 1px dashed var(--batas);
+  border-bottom: 1px dashed var(--border-color);
   margin-top: 2.5em;
   padding-bottom: 2.5em;
 }
 
 .post-breadcrumb {
-  color: var(--teks-sekunder);
+  color: var(--secondary-text-color);
   margin-top: 2.5em;
   margin-bottom: 1.25em;
 }
 
 .post-title a {
-  color: var(--teks);
+  color: var(--text-color);
 }
 
 .post-title a:hover {
-  color: var(--layang);
+  color: var(--link-hover-color);
 }
 
 .post-header {
-  color: var(--teks-sekunder);
+  color: var(--secondary-text-color);
 }
 
 .post-header a {
-  color: var(--teks-sekunder);
+  color: var(--secondary-text-color);
 }
 
 .post-header a:hover {
-  color: var(--layang);
+  color: var(--link-hover-color);
 }
 
 .post-snippet {
@@ -372,11 +408,16 @@ textarea:focus {
 }
 
 .post-body a {
-  text-decoration: underline;
+  border-bottom: 2px solid var(--secondary-background-color);
+}
+
+.post-body a:hover {
+  border-color: var(--link-hover-color);
+  text-decoration: none;
 }
 
 .post-share {
-  color: var(--teks-sekunder);
+  color: var(--secondary-text-color);
   margin-top: 2.5em;
 }
 
@@ -385,14 +426,14 @@ textarea:focus {
 }
 
 a.facebook {
-  color: #3b5998;
+  color: #4267b2;
 }
 
 a.twitter {
-  color: #657786;
+  color: #1da1f2;
 }
 
-/* Media */
+/* Media & Embed */
 
 .post-body iframe[src*="blogger"],
 .post-body iframe[src*="youtube"] {
@@ -411,6 +452,7 @@ a.twitter {
 }
 
 .separator a {
+  border: 0;
   display: inline-block;
   margin-right: 0 !important;
   margin-left: 0 !important;
@@ -435,8 +477,8 @@ a.twitter {
 }
 
 .tr-caption {
-  color: var(--teks-sekunder);
-  font-family: var(--font-sans);
+  color: var(--secondary-text-color);
+  font-family: var(--font-sans-serif);
   font-size: 0.875em;
   max-width: 15em;
 }
@@ -458,7 +500,7 @@ a.twitter {
   }
 }
 
-/* Navigation */
+/* Post Navigation */
 
 .blog-pager {
   display: flex;
@@ -495,11 +537,15 @@ a.twitter {
   }
 
   .blog-pager-home-link {
-    line-height: 3.25;
+    line-height: 3.5;
+  }
+
+  .blog-pager-home-link.centered {
+    line-height: 1.5;
   }
 }
 
-/* Layout */
+/* General Layout */
 
 .widget {
   margin-right: auto;
@@ -529,7 +575,7 @@ a.twitter {
   }
 }
 
-/* Random */
+/* Random Things */
 
 .clear {
   clear: both;
@@ -538,6 +584,7 @@ a.twitter {
 .hidden {
   display: none;
 }
+
 ]]></b:skin>
 <b:template-skin><![CDATA[]]></b:template-skin>
 <b:include data='blog' name='google-analytics'/>
@@ -575,8 +622,8 @@ a.twitter {
 <b:section cond='!data:view.isPost' id='Navigation' name='Navigation'>
   <b:widget id='PageList1' locked='false' title='' type='PageList'>
     <b:widget-settings>
-      <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://aji6.blogspot.com/', 'title': 'Beranda', 'position': 0}, '2452061744372873149': {'href': 'https://aji6.blogspot.com/p/kontak.html', 'title': 'Kontak', 'position': 1}, '909453377791400136': {'href': 'https://aji6.blogspot.com/p/tentang.html', 'title': 'Tentang', 'position': 2}, 'link0': {'href': 'https://www.google.co.id', 'title': 'Google Indonesia', 'position': 3}, 'link1': {'href': 'https://id-id.facebook.com', 'title': 'Facebook Indonesia', 'position': 4}}]]></b:widget-setting>
-      <b:widget-setting name='homeTitle'>Beranda</b:widget-setting>
+      <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://www.ajiksip.web.id/', 'title': 'Home', 'position': 0}}]]></b:widget-setting>
+      <b:widget-setting name='homeTitle'>Home</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
 <ul class='blog-navigation'>
@@ -750,7 +797,7 @@ a.twitter {
 <div class='clear'/>
 </div>
 <div class='post-share'>
-Bagikan ke <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Facebook</a> atau <a class='twitter' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title + &quot;&amp;via=ajiksip&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Twitter</a>
+Share to <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Facebook</a> or <a class='twitter' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title + &quot;&amp;via=ajiksip&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Twitter</a>
 </div>
 </article>
 </b:if>
@@ -758,11 +805,11 @@ Bagikan ke <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/
 
 <div class='blog-pager'>
 <b:if cond='data:newerPageUrl'>
-<a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;'> « <span class='blog-pager-text'><data:newerPageTitle/></span></a>
+<a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;'> ‹ <span class='blog-pager-text'><data:newerPageTitle/></span></a>
 </b:if>
 <a class='blog-pager-home-link' expr:href='data:blog.homepageUrl'><b:class cond='!data:newerPageUrl and !data:olderPageUrl' name='centered'/><span><data:homeMsg/></span></a>
 <b:if cond='data:olderPageUrl'>
-<a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;'><span class='blog-pager-text'><data:olderPageTitle/></span> » </a>
+<a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;'><span class='blog-pager-text'><data:olderPageTitle/></span> › </a>
 </b:if>
 </div>
 </b:includable>

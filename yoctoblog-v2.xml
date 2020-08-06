@@ -483,9 +483,12 @@ a.twitter {
   max-width: 15em;
 }
 
+.mobile-photo {
+  text-align: center;
+}
+
 .mobile-photo a {
   border: 0;
-  text-align: center;
 }
 
 @media screen and (max-width: 35em) {

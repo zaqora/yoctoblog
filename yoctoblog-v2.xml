@@ -797,7 +797,7 @@ a.twitter {
 <div class='clear'/>
 </div>
 <div class='post-share'>
-Share to <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Facebook</a> or <a class='twitter' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title + &quot;&amp;via=ajiksip&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Twitter</a>
+Share to <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Facebook</a> and <a class='twitter' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title + &quot;&amp;via=ajiksip&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=480,width=640\&quot;); return false;&quot;'>Twitter</a>
 </div>
 </article>
 </b:if>

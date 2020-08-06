@@ -1050,8 +1050,8 @@ Share to <a class='facebook' expr:href='&quot;https://www.facebook.com/sharer/sh
 <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
 <div class='comment-form-message'><data:this.messages.blogComment/></div>
 </b:if>
-<a aria-label='Comments Form' expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
-<iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' loading='lazy' name='comment-editor' src='' title='Comments Form' width='100%'/>
+<a aria-label='Comment Form' expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+<iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' loading='lazy' name='comment-editor' src='' title='Comment Form' width='100%'/>
 <data:post.cmtfpIframe/>
 <script type='text/javascript'>
 BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);

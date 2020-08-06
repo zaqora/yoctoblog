@@ -84,11 +84,11 @@ blockquote cite {
 
 code, kbd, pre {
   font-family: var(--font-monospace);
+  font-size: 0.875em;
 }
 
 code {
   background-color: var(--secondary-background-color);
-  font-size: 0.875em;
   padding: 0.25em;
 }
 
@@ -187,6 +187,7 @@ kbd {
   background-color: var(--secondary-background-color);
   border: 1px solid var(--border-color);
   border-radius: 2px;
+  box-shadow: var(--box-shadow);
   padding: 0.125em;
 }
 
@@ -203,7 +204,6 @@ ol, ul {
 
 pre {
   background-color: var(--secondary-background-color);
-  font-size: 0.875em;
   margin: 0;
   overflow-x: auto;
   padding: 1em;
